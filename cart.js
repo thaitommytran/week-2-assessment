@@ -7,7 +7,6 @@
     creating customer objects.  
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Below is a cart array that has food objects
@@ -19,24 +18,26 @@
 */
 
 const cart = [
-    {
-        name: 'pizza', 
-        price: 9.99
-    }, 
-    {
-        name: 'pasta', 
-        price: 8.99
-    }, 
-    {
-        name: 'salad', 
-        price: 7.99
-    }
-]
+  {
+    name: "pizza",
+    price: 9.99
+  },
+  {
+    name: "pasta",
+    price: 8.99
+  },
+  {
+    name: "salad",
+    price: 7.99
+  }
+];
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart
+  .map((foodObj) => foodObj.price)
+  .reduce((acc, curr) => acc + curr);
+console.log(summedPrice);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,8 +55,11 @@ const cart = [
 */
 
 //CODE HERE
-
-
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+  let taxApplied = cartTotal * (1 + tax);
+  let couponApplied = taxApplied - couponValue;
+  return couponApplied;
+};
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -78,7 +82,11 @@ const cart = [
 */
 
 /*
-    TEXT ANSWER HERE
+    The customer object will have 4 properties:
+    {name} as a string, to hold a reservation,
+    {time} as a string, to set a reservation time,
+    {party} as a number, to tell the restaurant how big the party is, and
+    {kids} as a boolean, to tell the restaurant if kid seating is required.
 
 */
 
@@ -88,3 +96,9 @@ const cart = [
 */
 
 //CODE HERE
+let customerObject = {
+  name: "Thai Tran",
+  time: "6:00pm",
+  party: 6,
+  kids: true
+};
